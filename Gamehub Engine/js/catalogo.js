@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     let productosActuales = [...productosDB];
 
-    // Referencias al DOM
     const contenedorGrilla = document.getElementById("grilla-productos");
     const formFiltros = document.getElementById("form-filtros");
     const selectCategoria = document.getElementById("filtro-categoria");
@@ -16,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         contenedorGrilla.innerHTML = "";
 
         if (productos.length === 0) {
-            contenedorGrilla.innerHTML = `<p class="mensaje-vacio">No se encontraron productos que coincidan con los filtros.</p>`;
+            contenedorGrilla.innerHTML = `<p class="mensaje-vacio">No se encontraron productos con los filtros seleccionados.</p>`;
             return;
         }
 
@@ -33,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <h3>${prod.nombre}</h3>
                     <p class="precio">$${prod.precio.toLocaleString('es-CL')}</p>
                     <p class="stock ${tieneStock ? 'en-stock' : 'sin-stock'}">
-                        ${tieneStock ? `Stock disponible: ${prod.stock}` : 'Agotado'}
+                        ${tieneStock ? `Stock disponible: ${prod.stock}` : 'Sin Stock'}
                     </p>
                     <button 
                         class="boton-primario btn-agregar" 
@@ -55,20 +54,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         errorPrecio.textContent = "";
 
-        const min = inputMin.value !== "" ? Number(inputMin.value) : 0;
-        const max = inputMax.value !== "" ? Number(inputMax.value) : Infinity;
+        const min = inputMin.value !== "" ? parseFloat(inputMin.value) : 0;
+        const max = inputMax.value !== "" ? parseFloat(inputMax.value) : Infinity;
 
         if (min > max && max !== Infinity) {
             errorPrecio.textContent = "El precio mínimo no puede ser mayor que el máximo.";
             return;
         }
 
-        const catSeleccionada = selectCategoria.value;
-        const marcaSeleccionada = selectMarca.value;
+        const catSeleccionada = selectCategoria.value.toLowerCase().trim();
+        const marcaSeleccionada = selectMarca.value.toLowerCase().trim();
 
         productosActuales = productosDB.filter(prod => {
-            const coincideCat = catSeleccionada === "todas" || prod.categoria === catSeleccionada;
-            const coincideMarca = marcaSeleccionada === "todas" || prod.marca === marcaSeleccionada;
+            const coincideCat = catSeleccionada === "todas" || prod.categoria.toLowerCase() === catSeleccionada;
+            const coincideMarca = marcaSeleccionada === "todas" || prod.marca.toLowerCase() === marcaSeleccionada;
             const coincidePrecio = prod.precio >= min && prod.precio <= max;
 
             return coincideCat && coincideMarca && coincidePrecio;
@@ -105,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (carrito[existeIndex].cantidad < productoSeleccionado.stock) {
                         carrito[existeIndex].cantidad += 1;
                     } else {
-                        alert("No puedes agregar más unidades de las disponibles en stock.");
+                        alert("Has alcanzado el límite de stock disponible para este producto.");
                         return;
                     }
                 } else {
@@ -114,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 localStorage.setItem("carrito", JSON.stringify(carrito));
                 actualizarContadorCarrito();
-                alert(`¡${productoSeleccionado.nombre} agregado al carrito!`);
+                alert(`¡${productoSeleccionado.nombre} fue agregado al carrito!`);
             });
         });
     }
@@ -126,6 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (badge) badge.textContent = totalItems;
     }
 
+    // Escuchadores de eventos
     formFiltros.addEventListener("submit", aplicarFiltros);
     selectOrden.addEventListener("change", aplicarOrdenamiento);
 

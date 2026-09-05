@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo | GameHub Store</title>
+    <link rel="stylesheet" href="css/catalogo.css">
+</head>
+<body>
+    <header class="encabezado-principal">
+        <div class="logo">
+            <h1>GameHub Store</h1>
+        </div>
+        <nav class="navegacion-principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html" class="activo">Catálogo</a></li>
+                <li><a href="carrito.html">🛒(<span id="contador-carrito">0</span>)</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+                <li><a href="mis_ordenes.html">Mis Órdenes</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="contenedor-catalogo">
+        <h2>Catálogo de Productos</h2>
+
+        <div class="layout-catalogo">
+             <aside class="panel-filtros">
+                <h3>Filtros</h3>
+                <form id="filtros-form">
+                    <label for="categoria">Categoría:</label>
+                    <select id="categoria" name="categoria">
+                        <option value="">Todas</option>
+                        <option value="accion">Notebooks</option>
+                        <option value="aventura">Tarjetas Graficas</option>
+                        <option value="deportes">Procesadores</option>
+                        <option value="estrategia">Periféricos</option>
+                        <option value="estrategia">Consolas</option>
+                        <option value="estrategia">Monitores</option>
+                        <option value="estrategia">Accesorios</option>
+                    </select>
+                    <label for="precio">Rango de Precio:</label>
+                    <input type="number" id="precio-min" name="precio-min" placeholder="Mínimo">
+                    <input type="number" id="precio-max" name="precio-max" placeholder="Máximo">
+                    <button type="submit">Aplicar Filtros</button>
+                </form>      
+        </div>
+    </main>
+</body>
+</html>

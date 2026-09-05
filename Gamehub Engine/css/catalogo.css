@@ -24,6 +24,18 @@ body {
     color: var(--color-texto);
     font-family: var(--fuente-principal);
     line-height: 1.5;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor-catalogo {
+    flex: 1;
+    max-width: 1300px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
 }
 
 .encabezado-principal {
@@ -282,9 +294,14 @@ button {
 
 .pie-pagina {
     margin-top: 4rem;
-    padding: 2rem;
+    padding: 1rem 2rem;
     text-align: center;
+    background-color: var(--color-superficie);
     border-top: 1px solid var(--color-borde);
     color: var(--color-texto-secundario);
     font-size: 0.85rem;
+}
+
+.pie-pagina p {
+    margin: 0;
 }

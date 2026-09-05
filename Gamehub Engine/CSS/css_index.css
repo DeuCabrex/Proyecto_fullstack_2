@@ -75,6 +75,11 @@ header h1 {
     font-size: 1.1rem;
     transition: color 0.2s ease;
 }
+.nav a:hover,
+.nav a.activo {
+    color: var(--color-acento);
+    font-weight: 600; /* Opcional: le da un poco más de grosor para destacarlo */
+}
 
 .nav a:hover {
     color: var(--color-acento);

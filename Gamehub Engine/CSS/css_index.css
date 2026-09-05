@@ -78,7 +78,7 @@ header h1 {
 .nav a:hover,
 .nav a.activo {
     color: var(--color-acento);
-    font-weight: 600; /* Opcional: le da un poco más de grosor para destacarlo */
+    font-weight: 600; 
 }
 
 .nav a:hover {

@@ -28,24 +28,77 @@
         <div class="layout-catalogo">
              <aside class="panel-filtros">
                 <h3>Filtros</h3>
+
                 <form id="filtros-form">
-                    <label for="categoria">Categoría:</label>
-                    <select id="categoria" name="categoria">
-                        <option value="">Todas</option>
-                        <option value="accion">Notebooks</option>
-                        <option value="aventura">Tarjetas Graficas</option>
-                        <option value="deportes">Procesadores</option>
-                        <option value="estrategia">Periféricos</option>
-                        <option value="estrategia">Consolas</option>
-                        <option value="estrategia">Monitores</option>
-                        <option value="estrategia">Accesorios</option>
+
+                    <!--Filtro por Categoria-->
+                    <div class="grupo-filtro">
+                        <label for="filtro-categoria">Categoría:</label>
+                        <select id="filtro-categoria" name="categoria">
+                            <option value="">Todas</option>
+                            <option value="notebooks">Notebooks</option>
+                            <option value="graficasx">Tarjetas Graficas</option>
+                            <option value="procesadores">Procesadores</option>
+                            <option value="perifericos">Perifericos</option>
+                    </div>
+
+                    <!--Filtro por Marca-->
+                    <div class="grupo-filtro">
+                        <label for="filtro-marca">Marca:</label>
+                        <select id="filtro-marca" name="marca">
+                            <option value="">Todas</option>
+                            <option value="asus">Asus</option>
+                            <option value="msi">MSI</option>
+                            <option value="amd">AMD</option>
+                            <option value="intel">Intel</option>
+                            <option value="logitech">Logitech</option>
+                        </select>
+                    </div>
+
+                    <!--Rango por Precio-->
+                    <div class="grupo-filtro">
+                        <fieldset>
+                        <div class="inputs-precio">
+                            <label for ="precio-min">Precio Mínimo:</label>
+                            <input type="number" id="precio-min" name="precio-min" min="0" placeholder="0">
+                        </div>
+                        <div class="inputs-precio">
+                            <label for ="precio-max">Precio Máximo:</label>
+                            <input type="number" id="precio-max" name="precio-max" min="0" placeholder="0">
+                        </div>
+                        <span id="error-precio" class="mensaje-error" aria-live="polite"></span>
+                    </fieldset>
+                </div>
+
+                <button type="submit" class="boton-filtro">Aplicar Filtros</button>
+                <button type="button" id="boton-limpiar" class="boton-filtro">Limpiar Filtros</button>
+                </form>
+            </aside>
+            
+           <!-- Seccion de Productos y Ordenamiento-->
+
+           <section class="seccion-productos">
+                <div class="barra-ordenamiento">
+                    <label for="ordenar-por">Ordenar por:</label>
+                    <select id="ordenar-por">
+                        <option value="destacados">Destacados</option>
+                        <option value="precio-asc">Precio: Menor a Mayor</option>
+                        <option value="precio-desc">Precio: Mayor a Menor</option>
+                        <option value="nombre-asc">Nombre: A-Z</option>
                     </select>
-                    <label for="precio">Rango de Precio:</label>
-                    <input type="number" id="precio-min" name="precio-min" placeholder="Mínimo">
-                    <input type="number" id="precio-max" name="precio-max" placeholder="Máximo">
-                    <button type="submit">Aplicar Filtros</button>
-                </form>      
+                </div>
+
+                <div id="grilla-productos" class="grilla-productos">
+                </div>
+            </section>
         </div>
     </main>
+
+    <footer class="pie-pagina">
+        <p>&copy; 2026 GameHub Store - Proyecto Desarrollo FullStack II</p>
+    </footer>
+    
+    <script src="productos.js"></script>
+    <script src="catalogo.js"></script>
 </body>
 </html>

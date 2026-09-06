@@ -222,7 +222,7 @@ const productosDB = [
     
     {
         id: 21,
-        nombre: "Tarjeta de Video Yeston NVIDIA GeForce RTX 4060 Ti Hatsune Miku Edition",
+        nombre: "Tarjeta de Video Yeston NVIDIA GeForce RTX 5080 Hatsune Miku Edition",
         marca: "Nvidia", 
         categoria: "gpu",
         precioTransferencia: 1499990,

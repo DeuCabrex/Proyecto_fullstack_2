@@ -1,4 +1,3 @@
-// Referencias al DOM
 const contenedorGrilla = document.getElementById("grilla-productos");
 const btnAplicar = document.getElementById("btn-aplicar");
 const btnLimpiar = document.getElementById("btn-limpiar");
@@ -9,7 +8,17 @@ const inputMax = document.getElementById("precio-max");
 const selectOrdenar = document.getElementById("ordenar");
 const contadorCarrito = document.getElementById("contador-carrito");
 
-let cantidadCarrito = 0;
+let carrito = JSON.parse(localStorage.getItem("carritoStore")) || [];
+
+function actualizarContador() {
+    const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+    if (contadorCarrito) {
+        contadorCarrito.textContent = `(${totalItems})`;
+    }
+}
+
+actualizarContador();
+
 
 function renderizarProductos(productos) {
     contenedorGrilla.innerHTML = "";
@@ -58,6 +67,7 @@ function renderizarProductos(productos) {
     });
 }
 
+
 function aplicarFiltros() {
     let filtrados = productosDB.filter(prod => {
         const cumpleCategoria = selectCategoria.value === "todas" || prod.categoria === selectCategoria.value;
@@ -80,6 +90,7 @@ function aplicarFiltros() {
 btnAplicar.addEventListener("click", aplicarFiltros);
 selectOrdenar.addEventListener("change", aplicarFiltros);
 
+// Limpiar Filtros
 btnLimpiar.addEventListener("click", () => {
     selectCategoria.value = "todas";
     selectMarca.value = "todas";
@@ -91,13 +102,23 @@ btnLimpiar.addEventListener("click", () => {
 
 contenedorGrilla.addEventListener("click", (e) => {
     if (e.target.classList.contains("btn-agregar-carrito")) {
-        cantidadCarrito++;
-        
-        if (contadorCarrito) {
-            contadorCarrito.textContent = `(${cantidadCarrito})`;
-        }
-        
         const boton = e.target;
+        const idProducto = parseInt(boton.getAttribute("data-id"));
+        
+        const producto = productosDB.find(p => p.id === idProducto);
+        
+        const existe = carrito.find(p => p.id === idProducto);
+        
+        if (existe) {
+            existe.cantidad++;
+        } else {
+            carrito.push({ ...producto, cantidad: 1 });
+        }
+
+        localStorage.setItem("carritoStore", JSON.stringify(carrito));
+
+        actualizarContador();
+
         const textoOriginal = boton.textContent;
         boton.textContent = "¡Agregado!";
         boton.style.backgroundColor = "var(--color-exito)"; 

@@ -1,7 +1,4 @@
 const productosDB = [
-    // ==========================================
-    // CATEGORÍA: PERIFÉRICOS (5)
-    // ==========================================
     {
         id: 1,
         nombre: "Audífonos Gamer HyperX Cloud III Wireless",
@@ -57,10 +54,6 @@ const productosDB = [
         descuento: 20,
         imagen: "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&q=80"
     },
-
-    // ==========================================
-    // CATEGORÍA: NOTEBOOKS (5)
-    // ==========================================
     {
         id: 6,
         nombre: "Notebook Gamer Asus ROG Strix G16 i7 RTX 4070",
@@ -116,10 +109,6 @@ const productosDB = [
         descuento: 23,
         imagen: "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&q=80"
     },
-
-    // ==========================================
-    // CATEGORÍA: TARJETAS DE VIDEO / GPU (5)
-    // ==========================================
     {
         id: 11,
         nombre: "Tarjeta de Video MSI NVIDIA GeForce RTX 4060",
@@ -175,10 +164,6 @@ const productosDB = [
         descuento: 22,
         imagen: "https://images.unsplash.com/photo-1624704146112-9c6e26214bf8?w=400&q=80"
     },
-
-    // ==========================================
-    // CATEGORÍA: PROCESADORES (5)
-    // ==========================================
     {
         id: 16,
         nombre: "Procesador AMD Ryzen 7 7800X3D",

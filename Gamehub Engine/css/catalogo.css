@@ -7,7 +7,6 @@
     --color-acento: #66c0f4;
     --color-texto: #e1e1e1;
     --color-texto-secundario: #a0a0a0;
-    --color-error: #ff6b6b;
     --color-exito: #acd550;
     --fuente-principal: system-ui, -apple-system, sans-serif;
     --radio-borde: 6px;
@@ -29,6 +28,12 @@ body {
     flex-direction: column;
 }
 
+.logo img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
 .encabezado-principal {
     display: flex;
     align-items: center;
@@ -38,13 +43,7 @@ body {
     border-bottom: 1px solid var(--color-borde);
 }
 
-.logo img {
-    width: 90px;
-    height: 90px;
-    object-fit: contain;
-}
-
-.encabezado-principal .logo {
+.logo {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -204,26 +203,7 @@ body {
     text-align: center;
 }
 
-.mensaje-error {
-    color: var(--color-error);
-    font-size: 0.85rem;
-    display: block;
-    margin-top: 0.5rem;
-}
-
-.pie-pagina {
-    margin-top: auto;
-    padding: 1.5rem 2rem;
-    text-align: center;
-    background-color: var(--color-superficie);
-    border-top: 1px solid var(--color-borde);
-    color: var(--color-texto-secundario);
-    font-size: 0.85rem;
-}
-
-/* =========================================
-   ESTILOS DE TARJETAS Y GRILLA (ESTILO SP DIGITAL)
-========================================= */
+/* Grilla y Tarjetas */
 .grilla-productos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -336,4 +316,26 @@ body {
 
 .caption.acento {
     color: var(--color-acento);
+}
+
+.btn-agregar-carrito {
+    width: 100%;
+    background-color: var(--color-acento);
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1.2rem;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-agregar-carrito:hover {
+    background-color: #55a8d6;
+}
+
+.btn-agregar-carrito:active {
+    transform: scale(0.98);
 }

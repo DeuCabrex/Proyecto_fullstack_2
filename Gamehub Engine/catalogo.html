@@ -3,93 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo | GameHub Store</title>
+    <title>GameHub Store - Catálogo</title>
     <link rel="stylesheet" href="css/catalogo.css">
 </head>
 <body>
-
     <header class="encabezado-principal">
         <div class="logo">
-            <img src="gamehub.png" alt="Logo GH">
+            <img src="gamehub.png" alt="Logo GameHub" class="logo-imagen">
+            GameHub Store
         </div>
-        <h1>GameHub Store</h1>
         <nav class="navegacion-principal">
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="catalogo.html" class="activo">Catálogo</a></li>
-                <li><a href="mis-ordenes.html">Órdenes</a></li>
-                <li><a href="carrito.html">🛒 (<span id="contador-carrito">0</span>)</a></li>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#" class="activo">Catálogo</a></li>
+                <li><a href="#">Órdenes</a></li>
+                <li><a href="#">🛒 <span id="contador-carrito">(0)</span></a></li>
             </ul>
         </nav>
     </header>
 
     <main class="contenedor-catalogo">
         <h2>Catálogo de Productos</h2>
+        
+        <div class="barra-ordenamiento">
+            <label>Ordenar por:</label>
+            <select id="ordenar">
+                <option value="destacados">Destacados</option>
+                <option value="menor-precio">Menor Precio</option>
+                <option value="mayor-precio">Mayor Precio</option>
+            </select>
+        </div>
 
         <div class="layout-catalogo">
             <aside class="panel-filtros">
                 <h3>Filtros</h3>
                 
-                <form id="form-filtros">
-                    <div class="grupo-filtro">
-                        <label for="filtro-categoria">Categoría</label>
-                        <select id="filtro-categoria" name="categoria">
-                            <option value="todas">Todas</option>
-                            <option value="notebooks">Notebooks</option>
-                            <option value="gpu">Tarjetas Gráficas</option>
-                            <option value="procesadores">Procesadores</option>
-                            <option value="perifericos">Periféricos</option>
-                        </select>
-                    </div>
-
-                    <!-- Filtro Marca -->
-                    <div class="grupo-filtro">
-                        <label for="filtro-marca">Marca</label>
-                        <select id="filtro-marca" name="marca">
-                            <option value="todas">Todas</option>
-                            <option value="Asus">Asus</option>
-                            <option value="Nvidia">Nvidia</option>
-                            <option value="AMD">AMD</option>
-                            <option value="Logitech">Logitech</option>
-                        </select>
-                    </div>
-
-                    <div class="grupo-filtro">
-                        <label for="precio-min">Precio Mínimo ($)</label>
-                        <input type="number" id="precio-min" placeholder="0" min="0">
-                    </div>
-
-                    <div class="grupo-filtro">
-                        <label for="precio-max">Precio Máximo ($)</label>
-                        <input type="number" id="precio-max" placeholder="2000000" min="0">
-                    </div>
-
-                    <span id="error-precio" class="mensaje-error" aria-live="polite"></span>
-
-                    <button type="submit" class="boton-secundario">Aplicar Filtros</button>
-                    <button type="button" id="btn-limpiar" class="boton-terciario">Limpiar Filtros</button>
-                </form>
-            </aside>
-
-            <section class="seccion-productos">
-                <div class="barra-ordenamiento">
-                    <label for="ordenar-por">Ordenar por:</label>
-                    <select id="ordenar-por">
-                        <option value="destacados">Destacados</option>
-                        <option value="precio-asc">Precio: Menor a Mayor</option>
-                        <option value="precio-desc">Precio: Mayor a Menor</option>
-                        <option value="nombre-asc">Nombre: A-Z</option>
+                <div class="grupo-filtro">
+                    <label>Categoría</label>
+                    <select id="filtro-categoria">
+                        <option value="todas">Todas</option>
+                        <option value="perifericos">Periféricos</option>
+                        <option value="notebooks">Notebooks</option>
+                        <option value="gpu">Tarjetas de Video</option>
+                        <option value="procesadores">Procesadores</option>
                     </select>
                 </div>
 
-                <div id="grilla-productos" class="grilla-productos"></div>
+                <div class="grupo-filtro">
+                    <label>Marca</label>
+                    <select id="filtro-marca">
+                        <option value="todas">Todas</option>
+                        <option value="hyperx">HyperX</option>
+                        <option value="logitech">Logitech</option>
+                        <option value="asus">Asus</option>
+                        <option value="nvidia">Nvidia</option>
+                        <option value="amd">AMD</option>
+                    </select>
+                </div>
+
+                <div class="grupo-filtro">
+                    <label>Precio Mínimo ($)</label>
+                    <input type="number" id="precio-min" value="0">
+                </div>
+
+                <div class="grupo-filtro">
+                    <label>Precio Máximo ($)</label>
+                    <input type="number" id="precio-max" value="2000000">
+                </div>
+
+                <button id="btn-aplicar" class="boton-secundario">Aplicar Filtros</button>
+                <button id="btn-limpiar" class="boton-terciario">Limpiar Filtros</button>
+            </aside>
+
+            <section class="grilla-productos" id="grilla-productos">
             </section>
         </div>
     </main>
-
-    <footer class="pie-pagina">
-        <p>&copy; 2026 GameHub Store - Proyecto Desarrollo FullStack II</p>
-    </footer>
 
     <script src="js/productos.js"></script>
     <script src="js/catalogo.js"></script>

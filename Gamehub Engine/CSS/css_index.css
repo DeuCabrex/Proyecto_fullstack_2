@@ -1,5 +1,4 @@
 :root {
-    /* Paleta 1: Vitrina Oscura (Valores exactos del caso) */
     --color-fondo: #171A21;
     --color-superficie: #1B2838;
     --color-primario: #66C0F4;
@@ -7,9 +6,9 @@
     --color-texto: #C7D5E0;
     --color-error: #FF6B6B;
     
-    /* Variables de estructura y apoyo */
+
     --color-texto-secundario: #8F98A0;
-    --color-texto-oscuro: #171A21; /* Grafito obligatorio sobre botón primario para contraste 4.5:1 */
+    --color-texto-oscuro: #171A21; 
     --color-borde: #2A3F5A;
     --fuente-principal: system-ui, -apple-system, sans-serif;
     --radio-borde: 8px;
@@ -325,7 +324,6 @@ header h1 {
     width: 100%;
 }
 
-/* FOOTER */
 footer {
     margin-top: 4rem;
     padding: 1.2rem;
@@ -340,7 +338,6 @@ footer p {
     margin: 0;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
     header {
         flex-direction: column;

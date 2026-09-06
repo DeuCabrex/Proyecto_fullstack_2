@@ -56,13 +56,13 @@ const productosDB = [
     },
     {
         id: 6,
-        nombre: "Notebook Gamer Asus ROG Strix G16 i7 RTX 4070",
+        nombre: "Notebook Gamer Asus ROG Strix Scar i9 RTX 4080",
         marca: "Asus",
         categoria: "notebooks",
-        precioTransferencia: 1499990,
-        precioOtros: 1574990,
-        precioNormal: 1899990,
-        descuento: 21,
+        precioTransferencia: 2299990,
+        precioOtros: 2999990,
+        precioNormal: 4600000,
+        descuento: 50,
         imagen: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&q=80"
     },
     {

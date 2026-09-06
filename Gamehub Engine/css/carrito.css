@@ -1,3 +1,17 @@
+:root {
+    --color-fondo: #171A21;
+    --color-superficie: #1B2838;
+    --color-primario: #66C0F4;
+    --color-acento: #ACD550;
+    --color-texto: #C7D5E0;
+    --color-error: #FF6B6B;
+    
+    --color-texto-secundario: #8F98A0;
+    --color-borde: #2A475E;
+    --color-exito: #ACD550; 
+    --radio-borde: 8px;
+}
+
 .contenedor-carrito {
     flex: 1;
     max-width: 1300px;
@@ -45,7 +59,7 @@
 
 .item-detalles h4 {
     font-size: 1.1rem;
-    color: var(--color-primario);
+    color: var(--color-texto);
     margin-bottom: 0.3rem;
 }
 
@@ -65,7 +79,7 @@
 .item-precio {
     font-size: 1.2rem;
     font-weight: bold;
-    color: var(--color-acento);
+    color: var(--color-acento); 
 }
 
 .controles-cantidad {
@@ -89,7 +103,7 @@
 }
 
 .btn-cantidad:hover {
-    color: var(--color-acento);
+    color: var(--color-primario);
 }
 
 .cantidad-input {
@@ -97,14 +111,14 @@
     text-align: center;
     background: transparent;
     border: none;
-    color: var(--color-primario);
+    color: var(--color-texto);
     font-size: 0.9rem;
 }
 
 .btn-eliminar {
     background: transparent;
     border: none;
-    color: #ff4d4d;
+    color: var(--color-error);
     cursor: pointer;
     font-size: 0.85rem;
     text-decoration: underline;
@@ -146,6 +160,37 @@
 
 .texto-exito {
     color: var(--color-exito);
+}
+
+#btn-pagar {
+    background-color: var(--color-primario);
+    color: #171A21;
+    border: none;
+    padding: 1rem;
+    width: 100%;
+    border-radius: var(--radio-borde);
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+#btn-pagar:hover {
+    background-color: #4a9ad4;
+}
+
+.boton-terciario {
+    color: var(--color-texto-secundario);
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.boton-terciario:hover {
+    color: var(--color-texto);
 }
 
 .carrito-vacio {

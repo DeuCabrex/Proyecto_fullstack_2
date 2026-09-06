@@ -25,26 +25,84 @@
 
     <main>
         <section class="carrusel-simple">
-            <a href="catalogo.html">
-                <img src="grafica_miku.png" alt="Banner Hatsune Miku">
-            </a>
-            <a href="catalogo.html">
-                <img src="Asus_Laptop.png" alt="Banner Notebook Asus">
-            </a>
+            <article class="slide-banner">
+                <div class="banner-img-container">
+                    <img src="grafica_miku.png" alt="Asus ROG Hatsune Miku RTX 5080">
+                </div>
+                <div class="banner-info">
+                    <span class="badge-destacado">🔥 Edición Limitada</span>
+                    <h2>Asus ROG Astral RTX 5080</h2>
+                    <p class="subtitulo-miku">Hatsune Miku Edition</p>
+                    <ul class="specs-lista">
+                        <li> 16GB GDDR7 VRAM</li>
+                        <li> Ray Tracing & DLSS 4</li>
+                        <li> Sistema de enfriamiento ROG Astral</li>
+                    </ul>
+                    <div class="banner-precio-box">
+                        <span class="precio-banner">$1.499.990</span>
+                        <a href="catalogo.html" class="btn-banner">Comprar Ahora</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="slide-banner">
+                <div class="banner-img-container">
+                    <img src="Asus_Laptop.png" alt="Notebook Gamer Asus ROG Strix">
+                </div>
+                <div class="banner-info">
+                    <span class="badge-destacado">💻 Alto Rendimiento</span>
+                    <h2>Asus ROG Strix Scar 18</h2>
+                    <p class="subtitulo-miku">Poder Gamer Portátil</p>
+                    <ul class="specs-lista">
+                        <li> Intel Core i9 / RTX 4080</li>
+                        <li> Pantalla 18" 240Hz QHD+</li>
+                        <li> 32GB RAM + 1TB SSD NVMe</li>
+                    </ul>
+                    <div class="banner-precio-box">
+                        <span class="precio-banner">$2.299.990</span>
+                        <a href="catalogo.html" class="btn-banner">Comprar Ahora</a>
+                    </div>
+                </div>
+            </article>
         </section>
+
         <section class="video-container">
             <video autoplay muted loop playsinline>
                 <source src="videoplayback.mp4" type="video/mp4">
                 Tu navegador no soporta videos HTML5.
             </video>
         </section>
-        <section id="productos-destacados" class="contenedor-productos">
-        </section>
-    </main>
 
+        <section class="sobre-nosotros">
+            <h2>Sobre GameHub Store</h2>
+            <p>
+                En <strong>GameHub Store</strong> nacimos con un propósito claro: equipar a la comunidad gamer y creadora con la tecnología de más alto rendimiento en el mercado. Somos un e-commerce especializado en la venta de componentes de PC, notebooks de alta gama, periféricos y hardware de última generación, reuniendo a marcas líderes como Asus ROG, Nvidia y AMD en un solo lugar.
+            </p>
+            <p>
+                Nuestra plataforma está diseñada para ofrecerte una experiencia de compra fluida, transparente e intuitiva. Nos apasiona cada componente que catalogamos —desde una GPU de edición especial hasta el teclado mecánico más preciso— porque sabemos que detrás de cada actualización de hardware hay una meta: optimizar tu espacio de juego, potenciar tu productividad y llevar tu experiencia gráfica al límite.
+            </p>
+            <p class="slogan-destacado">
+                En GameHub Store no solo vendemos piezas; construimos el motor de tu setup.
+            </p>
+        </section>
+    <section class="ubicacion-container">
+    <h2>¿Dónde estamos ubicados?</h2>
+    <div class="mapa-wrapper">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6688.8300333371635!2d-71.61202374701104!3d-33.04553906371685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689e0d76107fd55%3A0x77baf68d119f6eeb!2sDUOC%20UC%20Sede%20Valpara%C3%ADso!5e0!3m2!1ses!2scl!4v1788666934738!5m2!1ses!2scl" 
+            width="100%" 
+            height="220" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</section>
+    </main>
     <footer>
         <p>© 2026 GameHub Store - Proyecto Desarrollo FullStack II</p>
     </footer>
-
+    <script src="js/index.js"></script>
 </body>
 </html>

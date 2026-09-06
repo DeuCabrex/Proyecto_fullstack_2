@@ -1,14 +1,16 @@
 :root {
-    --color-fondo: #121212;
-    --color-superficie: #1a1a1a;
-    --color-superficie-hover: #262626;
-    --color-borde: #2d2d2d;
-    --color-primario: #ffffff;
-    --color-acento: #66c0f4;
-    --color-texto: #e1e1e1;
-    --color-texto-secundario: #a0a0a0;
-    --color-error: #ff6b6b;
-    --color-exito: #acd550;
+    /* Paleta 1: Vitrina Oscura (Valores exactos del caso) */
+    --color-fondo: #171A21;
+    --color-superficie: #1B2838;
+    --color-primario: #66C0F4;
+    --color-acento: #ACD550;
+    --color-texto: #C7D5E0;
+    --color-error: #FF6B6B;
+    
+    /* Variables de estructura y apoyo */
+    --color-texto-secundario: #8F98A0;
+    --color-texto-oscuro: #171A21; /* Grafito obligatorio sobre botón primario para contraste 4.5:1 */
+    --color-borde: #2A3F5A;
     --fuente-principal: system-ui, -apple-system, sans-serif;
     --radio-borde: 8px;
 }
@@ -33,13 +35,14 @@ main {
     flex: 1;
 }
 
+/* HEADER Y NAVEGACIÓN */
 header {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem 3rem;
-    background-color: var(--color-fondo);
+    background-color: var(--color-superficie);
     border-bottom: 1px solid var(--color-borde);
     min-height: 120px;
 }
@@ -60,7 +63,7 @@ header h1 {
     left: 50%;
     top: 50px;
     transform: translateX(-50%);
-    color: var(--color-primario);
+    color: #FFFFFF;
     font-size: 1.8rem;
     font-weight: 700;
     margin: 0;
@@ -91,11 +94,11 @@ header h1 {
 
 .nav a:hover,
 .nav a.activo {
-    color: var(--color-acento);
+    color: var(--color-primario);
     font-weight: 600; 
 }
 
-/* CARROUSEL ELEGANTE Y FLUIDO */
+/* CARRUSEL DE PRODUCTOS */
 .carrusel-simple {
     display: flex;
     overflow-x: auto; 
@@ -119,7 +122,7 @@ header h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #161616;
+    background-color: var(--color-superficie);
     border: 1px solid var(--color-borde);
     border-radius: var(--radio-borde);
     padding: 2.5rem;
@@ -175,7 +178,7 @@ header h1 {
 
 .badge-destacado {
     background: rgba(102, 192, 244, 0.15);
-    color: var(--color-acento);
+    color: var(--color-primario);
     padding: 4px 12px;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -185,7 +188,7 @@ header h1 {
 
 .banner-info h2 {
     font-size: 2rem;
-    color: #fff;
+    color: #FFFFFF;
     margin: 0;
 }
 
@@ -213,15 +216,17 @@ header h1 {
     gap: 1.5rem;
 }
 
+/* El acento (Verde Lima) queda para precios rebajados */
 .precio-banner {
     font-size: 1.8rem;
     font-weight: bold;
-    color: var(--color-exito);
+    color: var(--color-acento);
 }
 
+/* BOTÓN PRIMARIO: Cumple con la regla del color Grafito sobre Celeste */
 .btn-banner {
-    background-color: var(--color-acento);
-    color: #000;
+    background-color: var(--color-primario);
+    color: var(--color-texto-oscuro);
     padding: 10px 20px;
     border-radius: var(--radio-borde);
     font-weight: bold;
@@ -234,6 +239,7 @@ header h1 {
     background-color: #82d1ff;
 }
 
+/* SECCIÓN VIDEO */
 .video-container {
     display: flex;
     justify-content: center;
@@ -251,11 +257,12 @@ header h1 {
     border: 1px solid var(--color-borde);
 }
 
+/* SECCIÓN SOBRE NOSOTROS */
 .sobre-nosotros {
     max-width: 900px;
     margin: 4rem auto;
     padding: 2.5rem 2rem;
-    background-color: #161616;
+    background-color: var(--color-superficie);
     border: 1px solid var(--color-borde);
     border-radius: var(--radio-borde);
     text-align: center;
@@ -263,7 +270,7 @@ header h1 {
 }
 
 .sobre-nosotros h2 {
-    color: var(--color-acento);
+    color: var(--color-primario);
     font-size: 2rem;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
@@ -278,18 +285,47 @@ header h1 {
 }
 
 .sobre-nosotros strong {
-    color: #ffffff;
+    color: #FFFFFF;
 }
 
 .slogan-destacado {
     font-size: 1.2rem !important;
     font-weight: bold;
-    color: var(--color-acento) !important;
+    color: var(--color-primario) !important;
     margin-top: 1.5rem;
     padding-top: 1rem;
     border-top: 1px solid var(--color-borde);
 }
 
+/* SECCIÓN MAPA / UBICACIÓN COMPACTA Y ALINEADA */
+.ubicacion-container {
+    max-width: 500px;
+    margin: 3rem auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.ubicacion-container h2 {
+    color: var(--color-primario);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.mapa-wrapper {
+    width: 100%;
+    border-radius: var(--radio-borde);
+    overflow: hidden;
+    border: 1px solid var(--color-borde);
+    line-height: 0;
+}
+
+.mapa-wrapper iframe {
+    display: block;
+    width: 100%;
+}
+
+/* FOOTER */
 footer {
     margin-top: 4rem;
     padding: 1.2rem;
@@ -304,6 +340,7 @@ footer p {
     margin: 0;
 }
 
+/* RESPONSIVE */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -329,30 +366,4 @@ footer p {
         flex-direction: column;
         gap: 0.8rem;
     }
-}
-.ubicacion-container {
-    max-width: 500px;
-    margin: 3rem auto;
-    padding: 0 20px;
-    text-align: center;
-}
-
-.ubicacion-container h2 {
-    color: var(--color-acento);
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-}
-
-.mapa-wrapper {
-    width: 100%;
-    border-radius: var(--radio-borde);
-    overflow: hidden; /* Corta bordes del iframe pero ya no afecta al título */
-    border: 1px solid var(--color-borde);
-    line-height: 0;   /* Elimina la línea/espacio fantasma inferior del iframe */
-}
-
-.mapa-wrapper iframe {
-    display: block;   /* Remueve comportamiento de texto y ajusta perfectamente */
-    width: 100%;
 }

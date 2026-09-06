@@ -38,16 +38,24 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
     padding: 1rem 3rem;
     background-color: var(--color-fondo);
     border-bottom: 1px solid var(--color-borde);
+    min-height: 80px;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 14px;
+}
+
+.titulo-central {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 1.6rem;
     font-weight: bold;
     color: var(--color-primario);
 }
@@ -203,7 +211,6 @@ body {
     text-align: center;
 }
 
-/* Grilla y Tarjetas */
 .grilla-productos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -338,4 +345,14 @@ body {
 
 .btn-agregar-carrito:active {
     transform: scale(0.98);
+}
+
+.pie-pagina {
+    background-color: var(--color-superficie);
+    border-top: 1px solid var(--color-borde);
+    text-align: center;
+    padding: 1rem 3rem; 
+    margin-top: 3rem; 
+    color: var(--color-texto-secundario);
+    font-size: 0.85rem;
 }

@@ -218,5 +218,18 @@ const productosDB = [
         precioNormal: 249990,
         descuento: 24,
         imagen: "https://images.unsplash.com/photo-1631583020626-d668c2ec68bd?w=400&q=80"
+    },
+    
+    {
+        id: 21,
+        nombre: "Tarjeta de Video Yeston NVIDIA GeForce RTX 4060 Ti Hatsune Miku Edition",
+        marca: "Nvidia", 
+        categoria: "gpu",
+        precioTransferencia: 1499990,
+        precioOtros: 1679999,
+        precioNormal: 2999990,
+        descuento: 50,
+        imagen: "grafica_miku.png" 
     }
+
 ];

@@ -1,142 +1,116 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let productosActuales = [...productosDB];
-
     const contenedorGrilla = document.getElementById("grilla-productos");
     const formFiltros = document.getElementById("form-filtros");
     const selectCategoria = document.getElementById("filtro-categoria");
     const selectMarca = document.getElementById("filtro-marca");
-    const inputMin = document.getElementById("precio-min");
-    const inputMax = document.getElementById("precio-max");
-    const errorPrecio = document.getElementById("error-precio");
-    const selectOrden = document.getElementById("ordenar-por");
+    const inputPrecioMin = document.getElementById("precio-min");
+    const inputPrecioMax = document.getElementById("precio-max");
+    const selectOrdenar = document.getElementById("ordenar-por");
     const btnLimpiar = document.getElementById("btn-limpiar");
+    const errorPrecio = document.getElementById("error-precio");
+
+    let productosActuales = [...productosDB];
 
     function renderizarProductos(productos) {
         contenedorGrilla.innerHTML = "";
 
         if (productos.length === 0) {
-            contenedorGrilla.innerHTML = `<p class="mensaje-vacio">No se encontraron productos con los filtros seleccionados.</p>`;
+            contenedorGrilla.innerHTML = `<p class="mensaje-vacio">No se encontraron productos que coincidan con la búsqueda.</p>`;
             return;
         }
 
         productos.forEach(prod => {
-            const articulo = document.createElement("article");
-            articulo.classList.add("tarjeta-producto");
+            const card = document.createElement("article");
+            card.className = "Fractal-ProductCard--container";
 
-            const tieneStock = prod.stock > 0;
+            const pTransferencia = prod.precioTransferencia || 0;
+            const pNormal = prod.precioNormal || Math.round(pTransferencia * 1.25);
+            const pOtros = prod.precioOtros || Math.round(pTransferencia * 1.05);
+            const dcto = prod.descuento || 20;
 
-            articulo.innerHTML = `
-                <img src="${prod.imagen}" alt="${prod.nombre}">
-                <div class="info-producto">
-                    <span class="badge-marca">${prod.marca}</span>
-                    <h3>${prod.nombre}</h3>
-                    <p class="precio">$${prod.precio.toLocaleString('es-CL')}</p>
-                    <p class="stock ${tieneStock ? 'en-stock' : 'sin-stock'}">
-                        ${tieneStock ? `Stock disponible: ${prod.stock}` : 'Sin Stock'}
-                    </p>
-                    <button 
-                        class="boton-primario btn-agregar" 
-                        data-id="${prod.id}"
-                        ${!tieneStock ? 'disabled' : ''}>
-                        ${tieneStock ? 'Agregar al Carrito' : 'Sin Stock'}
-                    </button>
+            card.innerHTML = `
+                <div class="Fractal-ProductCard__image--container">
+                    <img src="${prod.imagen}" alt="${prod.nombre}">
+                </div>
+                
+                <div class="Fractal-ProductCard__description--container">
+                    <span class="marca-sp">${prod.marca}</span>
+                    <h3 class="titulo-sp">${prod.nombre}</h3>
+                </div>
+
+                <div class="Fractal-ProductCard__price--container">
+                    <div class="fila-descuento">
+                        <span class="badge-dcto">${dcto}% DCTO.</span>
+                        <span class="precio-normal">$${pNormal.toLocaleString('es-CL')}</span>
+                    </div>
+                    
+                    <div class="Fractal-ProductCard--priceVariantContainer">
+                        <span class="Fractal-Price--price principal">$${pTransferencia.toLocaleString('es-CL')}</span>
+                        <span class="Fractal-Typography__typography--caption acento">Transferencias</span>
+                    </div>
+                    
+                    <div class="Fractal-ProductCard--priceVariantContainer" style="margin-top: 6px;">
+                        <span class="Fractal-Price--price secundario">$${pOtros.toLocaleString('es-CL')}</span>
+                        <span class="Fractal-Typography__typography--caption">Otros medios de pago</span>
+                    </div>
                 </div>
             `;
-
-            contenedorGrilla.appendChild(articulo);
+            contenedorGrilla.appendChild(card);
         });
-
-        asignarEventosAgregar();
     }
 
-    function aplicarFiltros(e) {
-        if (e) e.preventDefault();
-
+    function aplicarFiltrosYOrden() {
         errorPrecio.textContent = "";
 
-        const min = inputMin.value !== "" ? parseFloat(inputMin.value) : 0;
-        const max = inputMax.value !== "" ? parseFloat(inputMax.value) : Infinity;
+        const categoriaVal = selectCategoria.value.toLowerCase();
+        const marcaVal = selectMarca.value.toLowerCase();
+        const precioMin = parseInt(inputPrecioMin.value) || 0;
+        const precioMax = parseInt(inputPrecioMax.value) || Infinity;
+        const ordenVal = selectOrdenar.value;
 
-        if (min > max && max !== Infinity) {
-            errorPrecio.textContent = "El precio mínimo no puede ser mayor que el máximo.";
+        if (precioMin > precioMax) {
+            errorPrecio.textContent = "El precio mínimo no puede ser mayor al máximo.";
             return;
         }
 
-        const catSeleccionada = selectCategoria.value.toLowerCase().trim();
-        const marcaSeleccionada = selectMarca.value.toLowerCase().trim();
-
         productosActuales = productosDB.filter(prod => {
-            const coincideCat = catSeleccionada === "todas" || prod.categoria.toLowerCase() === catSeleccionada;
-            const coincideMarca = marcaSeleccionada === "todas" || prod.marca.toLowerCase() === marcaSeleccionada;
-            const coincidePrecio = prod.precio >= min && prod.precio <= max;
+            const prodCat = prod.categoria ? prod.categoria.toLowerCase() : "";
+            const prodMarca = prod.marca ? prod.marca.toLowerCase() : "";
+            const precio = prod.precioTransferencia || 0;
 
-            return coincideCat && coincideMarca && coincidePrecio;
+            const coincideCategoria = categoriaVal === "todas" || prodCat === categoriaVal;
+            const coincideMarca = marcaVal === "todas" || prodMarca === marcaVal;
+            const coincidePrecio = precio >= precioMin && precio <= precioMax;
+
+            return coincideCategoria && coincideMarca && coincidePrecio;
         });
 
-        aplicarOrdenamiento();
-    }
-
-    function aplicarOrdenamiento() {
-        const opcion = selectOrden.value;
-
-        if (opcion === "precio-asc") {
-            productosActuales.sort((a, b) => a.precio - b.precio);
-        } else if (opcion === "precio-desc") {
-            productosActuales.sort((a, b) => b.precio - a.precio);
-        } else if (opcion === "nombre-asc") {
+        if (ordenVal === "precio-asc") {
+            productosActuales.sort((a, b) => a.precioTransferencia - b.precioTransferencia);
+        } else if (ordenVal === "precio-desc") {
+            productosActuales.sort((a, b) => b.precioTransferencia - a.precioTransferencia);
+        } else if (ordenVal === "nombre-asc") {
             productosActuales.sort((a, b) => a.nombre.localeCompare(b.nombre));
+        } else {
+            productosActuales.sort((a, b) => a.id - b.id);
         }
 
         renderizarProductos(productosActuales);
     }
 
-    function asignarEventosAgregar() {
-        const botones = document.querySelectorAll(".btn-agregar");
-        botones.forEach(btn => {
-            btn.addEventListener("click", (e) => {
-                const idProd = Number(e.target.dataset.id);
-                const productoSeleccionado = productosDB.find(p => p.id === idProd);
-
-                let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-                const existeIndex = carrito.findIndex(p => p.id === idProd);
-
-                if (existeIndex !== -1) {
-                    if (carrito[existeIndex].cantidad < productoSeleccionado.stock) {
-                        carrito[existeIndex].cantidad += 1;
-                    } else {
-                        alert("Has alcanzado el límite de stock disponible para este producto.");
-                        return;
-                    }
-                } else {
-                    carrito.push({ ...productoSeleccionado, cantidad: 1 });
-                }
-
-                localStorage.setItem("carrito", JSON.stringify(carrito));
-                actualizarContadorCarrito();
-                alert(`¡${productoSeleccionado.nombre} fue agregado al carrito!`);
-            });
-        });
-    }
-
-    function actualizarContadorCarrito() {
-        const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-        const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
-        const badge = document.getElementById("contador-carrito");
-        if (badge) badge.textContent = totalItems;
-    }
-
-    // Escuchadores de eventos
-    formFiltros.addEventListener("submit", aplicarFiltros);
-    selectOrden.addEventListener("change", aplicarOrdenamiento);
+    formFiltros.addEventListener("submit", (e) => {
+        e.preventDefault();
+        aplicarFiltrosYOrden();
+    });
 
     btnLimpiar.addEventListener("click", () => {
         formFiltros.reset();
         errorPrecio.textContent = "";
-        productosActuales = [...productosDB];
-        selectOrden.value = "destacados";
-        renderizarProductos(productosActuales);
+        selectOrdenar.value = "destacados";
+        aplicarFiltrosYOrden();
     });
 
+    selectOrdenar.addEventListener("change", aplicarFiltrosYOrden);
+
     renderizarProductos(productosActuales);
-    actualizarContadorCarrito();
 });

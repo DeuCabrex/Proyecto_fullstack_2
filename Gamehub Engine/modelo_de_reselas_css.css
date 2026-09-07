@@ -1,0 +1,117 @@
+/* =========================================
+   ESTILOS PARA MODALES DE INTERACCIÓN
+   ========================================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay.hidden {
+    display: none !important;
+}
+
+.modal-contenido {
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.modal-contenido h3 {
+    color: #FFFFFF;
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+}
+
+.subtitulo-modal {
+    color: var(--color-primario);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.campo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+    text-align: left;
+}
+
+/* Corregido: Usa la variable de texto secundario */
+.campo-form label {
+    color: var(--color-texto-secundario); 
+    font-size: 0.9rem;
+}
+
+/* Corregido: Usa la variable de texto principal */
+.campo-form textarea,
+.campo-form select {
+    background-color: var(--color-fondo);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    color: var(--color-texto-principal); 
+    padding: 0.8rem;
+    font-family: inherit;
+}
+
+.campo-form textarea:focus,
+.campo-form select:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 2px rgba(91, 180, 229, 0.2); /* Resplandor suave celeste */
+}
+
+.modal-acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.btn-cancelar {
+    background: transparent;
+    border: 1px solid var(--color-borde);
+    color: var(--color-texto-secundario);
+    padding: 10px 18px;
+    border-radius: var(--radio-borde);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-cancelar:hover {
+    color: #FFFFFF;
+    border-color: var(--color-texto-secundario);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* NUEVO: Botón principal de acción (Garantía o Reseña) */
+.btn-banner {
+    background-color: var(--color-acento); /* Utiliza el verde ACD550 */
+    color: var(--color-texto-oscuro);
+    border: none;
+    padding: 10px 18px;
+    border-radius: var(--radio-borde);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-banner:hover {
+    background-color: #9abf48; /* Verde un poco más oscuro al pasar el mouse */
+}
+
+.mensaje-error {
+    color: var(--color-error);
+    font-size: 0.8rem;
+}

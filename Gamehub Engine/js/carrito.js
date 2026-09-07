@@ -96,3 +96,36 @@ contenedorItems.addEventListener("click", (e) => {
 });
 
 document.addEventListener("DOMContentLoaded", renderizarCarrito);
+
+const btnPagar = document.getElementById("btn-pagar");
+
+if (btnPagar) {
+    btnPagar.addEventListener("click", () => {
+        if (carrito.length === 0) {
+            alert("Tu carrito está vacío. ¡Agrega algunos productos antes de pagar!");
+            return;
+        }
+
+        const textoOriginal = btnPagar.textContent;
+        btnPagar.textContent = "Procesando pago...";
+        btnPagar.style.opacity = "0.7";
+        btnPagar.style.cursor = "not-allowed";
+        btnPagar.disabled = true;
+
+        setTimeout(() => {
+
+            carrito = [];
+            localStorage.removeItem("carritoStore");
+
+            renderizarCarrito();
+
+            btnPagar.textContent = textoOriginal;
+            btnPagar.style.opacity = "1";
+            btnPagar.style.cursor = "pointer";
+            btnPagar.disabled = false;
+
+            alert("¡Pago realizado con éxito! 🎮\n\nGracias por tu compra en GameHub Store. Te enviaremos un correo con los detalles del despacho.");
+            
+        }, 1500);
+    });
+}

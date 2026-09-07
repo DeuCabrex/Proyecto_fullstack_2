@@ -206,7 +206,7 @@ const productosDB = [
         precioOtros: 146990,
         precioNormal: 189990,
         descuento: 26,
-        imagen: "https://images.unsplash.com/photo-1562976540-b50838d1d860?w=400&q=80"
+        imagen: "amd5600g.png"
     },
     {
         id: 20,

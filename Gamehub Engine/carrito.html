@@ -50,7 +50,32 @@
                 <a href="catalogo.html" class="boton-terciario" style="display: block; text-align: center; text-decoration: none;">Seguir Comprando</a>
             </aside>
         </div>
+
+    <div id="modal-checkout" class="modal-oculto">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" id="cerrar-modal">&times;</span>
+            <h3>Datos de Envío y Pago</h3>
+            <form id="formulario-checkout">
+                <div class="grupo-input">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" required placeholder="Ej: Gordon Freeman">
+                </div>
+                <div class="grupo-input">
+                    <label for="direccion">Dirección de envío</label>
+                    <input type="text" id="direccion" required placeholder="Ej: Sector C, Black Mesa">
+                </div>
+                <div class="grupo-input">
+                    <label for="tarjeta">Número de tarjeta</label>
+                    <input type="text" id="tarjeta" required placeholder="1234 5678 9101 1121" maxlength="19">
+                </div>
+                <button type="submit" id="btn-confirmar-pago">Confirmar y Pagar</button>
+            </form>
+        </div>
+    </div>
+
     </main>
+
+
 
     <footer class="pie-pagina">
         <p>&copy; 2026 GameHub Store - Proyecto Desarrollo FullStack II</p>

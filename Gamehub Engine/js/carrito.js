@@ -98,6 +98,10 @@ contenedorItems.addEventListener("click", (e) => {
 document.addEventListener("DOMContentLoaded", renderizarCarrito);
 
 const btnPagar = document.getElementById("btn-pagar");
+const modalCheckout = document.getElementById("modal-checkout");
+const btnCerrarModal = document.getElementById("cerrar-modal");
+const formCheckout = document.getElementById("formulario-checkout");
+const btnConfirmarPago = document.getElementById("btn-confirmar-pago");
 
 if (btnPagar) {
     btnPagar.addEventListener("click", () => {
@@ -105,26 +109,63 @@ if (btnPagar) {
             alert("Tu carrito está vacío. ¡Agrega algunos productos antes de pagar!");
             return;
         }
+        modalCheckout.style.display = "flex"; 
+    });
+}
 
-        const textoOriginal = btnPagar.textContent;
-        btnPagar.textContent = "Procesando pago...";
-        btnPagar.style.opacity = "0.7";
-        btnPagar.style.cursor = "not-allowed";
-        btnPagar.disabled = true;
+if (btnCerrarModal) {
+    btnCerrarModal.addEventListener("click", () => {
+        modalCheckout.style.display = "none";
+    });
+}
+
+window.addEventListener("click", (e) => {
+    if (e.target === modalCheckout) {
+        modalCheckout.style.display = "none";
+    }
+});
+
+if (formCheckout) {
+    formCheckout.addEventListener("submit", (e) => {
+        e.preventDefault(); 
+
+        const nombreCliente = document.getElementById("nombre").value;
+        const direccionEnvio = document.getElementById("direccion").value;
+
+        const textoOriginal = btnConfirmarPago.textContent;
+        btnConfirmarPago.textContent = "Procesando pago...";
+        btnConfirmarPago.style.opacity = "0.7";
+        btnConfirmarPago.style.cursor = "not-allowed";
+        btnConfirmarPago.disabled = true;
 
         setTimeout(() => {
+            const totalPagado = carrito.reduce((acc, item) => acc + (item.precioTransferencia * item.cantidad), 0);
+
+            const nuevaOrden = {
+                id: `ORD-${Date.now()}`,
+                fecha: new Date().toLocaleDateString('es-CL'),
+                cliente: nombreCliente,
+                direccion: direccionEnvio,
+                total: totalPagado,
+                productos: [...carrito] 
+            };
+
+            const historialOrdenes = JSON.parse(localStorage.getItem("ordenesStore")) || [];
+            historialOrdenes.unshift(nuevaOrden);
+            localStorage.setItem("ordenesStore", JSON.stringify(historialOrdenes));
 
             carrito = [];
             localStorage.removeItem("carritoStore");
-
             renderizarCarrito();
+            formCheckout.reset();
 
-            btnPagar.textContent = textoOriginal;
-            btnPagar.style.opacity = "1";
-            btnPagar.style.cursor = "pointer";
-            btnPagar.disabled = false;
+            btnConfirmarPago.textContent = textoOriginal;
+            btnConfirmarPago.style.opacity = "1";
+            btnConfirmarPago.style.cursor = "pointer";
+            btnConfirmarPago.disabled = false;
+            modalCheckout.style.display = "none";
 
-            alert("¡Pago realizado con éxito! 🎮\n\nGracias por tu compra en GameHub Store. Te enviaremos un correo con los detalles del despacho.");
+            alert(`¡Pago realizado con éxito! 🎮\n\nGracias ${nombreCliente}. Tu pedido será enviado a: ${direccionEnvio}.\n\nTu número de orden es: ${nuevaOrden.id}.`);
             
         }, 1500);
     });

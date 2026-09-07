@@ -357,3 +357,93 @@ body {
     color: var(--color-texto-secundario);
     font-size: 0.85rem;
 }
+
+.modal-oculto {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+    background-color: var(--color-superficie);
+    padding: 2rem;
+    border-radius: var(--radio-borde);
+    border: 1px solid var(--color-borde);
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.modal-contenido h3 {
+    color: var(--color-primario);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    border-bottom: 1px solid var(--color-borde);
+    padding-bottom: 0.5rem;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    color: var(--color-texto-secundario);
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cerrar-modal:hover {
+    color: var(--color-error);
+}
+
+.grupo-input {
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.grupo-input label {
+    color: var(--color-texto);
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+}
+
+.grupo-input input {
+    background-color: var(--color-fondo);
+    border: 1px solid var(--color-borde);
+    color: var(--color-texto);
+    padding: 0.8rem;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.grupo-input input:focus {
+    outline: none;
+    border-color: var(--color-primario);
+}
+
+#btn-confirmar-pago {
+    background-color: var(--color-primario);
+    color: #171A21;
+    border: none;
+    padding: 1rem;
+    width: 100%;
+    border-radius: var(--radio-borde);
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+#btn-confirmar-pago:hover {
+    background-color: #4a9ad4;
+}

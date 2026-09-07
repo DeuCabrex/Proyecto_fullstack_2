@@ -39,7 +39,7 @@
             <p>Revisa el estado de tus compras e historial de pedidos.</p>
         </section>
 
-        <!-- LISTA DE ÓRDENES (Aquí se aplica el CSS que me compartiste) -->
+        <!-- LISTA DE ÓRDENES -->
         <section class="lista-ordenes">
             
             <!-- TARJETA DE ORDEN 1 -->
@@ -54,15 +54,20 @@
 
                 <div class="orden-body">
                     <div class="item-producto">
-                        <!-- Asegúrate de tener una imagen de prueba, o cambia el src -->
                         <img src="placeholder.png" alt="Producto de ejemplo">
                         <div class="item-detalles">
                             <h3>Monitor Gamer 24" 144Hz</h3>
                             <p>Cantidad: 1 | Color: Negro</p>
                         </div>
+                        
                         <div class="item-acciones">
                             <button class="btn-secundario">Ver Detalles</button>
-                            <button class="btn-accion-garantia">Solicitar Soporte</button>
+                
+                            <!-- AQUÍ ESTÁ EL CAMBIO: Redirige a tu página de reseñas -->
+                            <button class="btn-resena" onclick="window.location.href='modelo_de_reseñas.html'">⭐ Dejar Reseña</button>
+                
+                            <!-- Si también tienes una página aparte para la garantía, puedes hacer lo mismo -->
+                            <button class="btn-accion-garantia" onclick="window.location.href='modelo_de_garantia.html'">Solicitar Garantía</button>
                         </div>
                     </div>
 

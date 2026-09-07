@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub Store - Mis Órdenes</title>
+    
+    <!-- VÍNCULO A TU HOJA DE ESTILOS CORREGIDO -->
+    <link rel="stylesheet" href="mis_ordenes_css.css">
+</head>
+<body>
+
+    <!-- NAVEGACIÓN PRINCIPAL -->
+    <header class="header-principal">
+        <!-- IZQUIERDA: Logo -->
+        <div class="header-logo">
+            <img src="gamehub.png" alt="Logo GameHub Store">
+        </div>
+        
+        <!-- CENTRO: Título -->
+        <h1 class="header-titulo">GameHub Store</h1>
+        
+        <!-- DERECHA: Navegación -->
+        <nav class="header-nav">
+            <ul>
+                <!-- La clase "activo" ahora está en Órdenes -->
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="categoria.html">Catálogo</a></li>
+                <li><a href="mis_ordenes.html" class="activo">Órdenes</a></li>
+                <li><a href="carrito.html">🛒 (0)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL: MIS ÓRDENES -->
+    <main class="contenedor-ordenes">
+        <section class="encabezado-seccion">
+            <h2>Mis Órdenes</h2>
+            <p>Revisa el estado de tus compras e historial de pedidos.</p>
+        </section>
+
+        <!-- LISTA DE ÓRDENES -->
+        <section class="lista-ordenes">
+            
+            <!-- TARJETA DE ORDEN 1 -->
+            <article class="tarjeta-orden">
+                <header class="orden-header">
+                    <div class="orden-info-meta">
+                        <span class="orden-id">#ORD-98765</span>
+                        <span class="orden-fecha">06 Septiembre 2026</span>
+                    </div>
+                    <span class="badge-estado estado-transito">En Tránsito</span>
+                </header>
+
+                <div class="orden-body">
+                    <div class="item-producto">
+                        <img src="placeholder.png" alt="Producto de ejemplo">
+                        <div class="item-detalles">
+                            <h3>Monitor Gamer 24" 144Hz</h3>
+                            <p>Cantidad: 1 | Color: Negro</p>
+                        </div>
+                        
+                        <div class="item-acciones">
+                            <button class="btn-secundario">Ver Detalles</button>
+                
+                            <!-- AQUÍ ESTÁ EL CAMBIO: Redirige a tu página de reseñas -->
+                            <button class="btn-resena" onclick="window.location.href='modelo_de_reseñas.html'">⭐ Dejar Reseña</button>
+                
+                            <!-- Si también tienes una página aparte para la garantía, puedes hacer lo mismo -->
+                            <button class="btn-accion-garantia" onclick="window.location.href='modelo_de_garantia.html'">Solicitar Garantía</button>
+                        </div>
+                    </div>
+
+                    <div class="seguimiento-despacho">
+                        <h4>Seguimiento del paquete</h4>
+                        <div class="linea-progreso">
+                            <div class="paso completado"><span>1</span> Preparación</div>
+                            <div class="paso activo"><span>2</span> En camino</div>
+                            <div class="paso"><span>3</span> Entregado</div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="orden-footer">
+                    <span class="total-etiqueta">Total pagado:</span>
+                    <span class="total-monto">$145.990</span>
+                </footer>
+            </article>
+
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>&copy; 2026 GameHub Store - Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

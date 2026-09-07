@@ -5,10 +5,8 @@
     --color-acento: #ACD550;
     --color-texto: #C7D5E0;
     --color-error: #FF6B6B;
-    
-
     --color-texto-secundario: #8F98A0;
-    --color-texto-oscuro: #171A21; 
+    --color-texto-oscuro: #171A21;
     --color-borde: #2A3F5A;
     --fuente-principal: system-ui, -apple-system, sans-serif;
     --radio-borde: 8px;
@@ -34,7 +32,6 @@ main {
     flex: 1;
 }
 
-/* HEADER Y NAVEGACIÓN */
 header {
     position: relative;
     display: flex;
@@ -93,11 +90,10 @@ header h1 {
 
 .nav a:hover,
 .nav a.activo {
-    color: var(--color-primario);
+    color: var(--color-acento);
     font-weight: 600; 
 }
 
-/* CARRUSEL DE PRODUCTOS */
 .carrusel-simple {
     display: flex;
     overflow-x: auto; 
@@ -215,14 +211,12 @@ header h1 {
     gap: 1.5rem;
 }
 
-/* El acento (Verde Lima) queda para precios rebajados */
 .precio-banner {
     font-size: 1.8rem;
     font-weight: bold;
     color: var(--color-acento);
 }
 
-/* BOTÓN PRIMARIO: Cumple con la regla del color Grafito sobre Celeste */
 .btn-banner {
     background-color: var(--color-primario);
     color: var(--color-texto-oscuro);
@@ -238,7 +232,6 @@ header h1 {
     background-color: #82d1ff;
 }
 
-/* SECCIÓN VIDEO */
 .video-container {
     display: flex;
     justify-content: center;
@@ -256,7 +249,6 @@ header h1 {
     border: 1px solid var(--color-borde);
 }
 
-/* SECCIÓN SOBRE NOSOTROS */
 .sobre-nosotros {
     max-width: 900px;
     margin: 4rem auto;
@@ -296,7 +288,6 @@ header h1 {
     border-top: 1px solid var(--color-borde);
 }
 
-/* SECCIÓN MAPA / UBICACIÓN COMPACTA Y ALINEADA */
 .ubicacion-container {
     max-width: 500px;
     margin: 3rem auto;

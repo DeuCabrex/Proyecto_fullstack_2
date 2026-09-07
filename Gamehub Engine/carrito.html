@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub Store - Carrito</title>
+    <link rel="stylesheet" href="css/catalogo.css"> 
+    <link rel="stylesheet" href="css/carrito.css">
+</head>
+<body>
+    <header class="encabezado-principal">
+        <div class="logo">
+            <img src="gamehub.png" alt="Logo GameHub" class="logo-imagen">
+        </div>
+        <h1 class="titulo-central">GameHub Store</h1>
+        <nav class="navegacion-principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="#">Órdenes</a></li>
+                <li><a href="#" class="activo">🛒 <span id="contador-carrito">(0)</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenedor-carrito">
+        <h2>Tu Carrito de Compras</h2>
+        
+        <div class="layout-carrito">
+            <section class="lista-productos" id="contenedor-items-carrito">
+            </section>
+
+            <aside class="resumen-compra">
+                <h3>Resumen de la Orden</h3>
+                
+                <div class="fila-resumen">
+                    <span>Subtotal</span>
+                    <span id="resumen-subtotal">$0</span>
+                </div>
+                <div class="fila-resumen">
+                    <span>Descuentos</span>
+                    <span id="resumen-descuentos" class="texto-exito">-$0</span>
+                </div>
+                <div class="fila-resumen total">
+                    <span>Total a Pagar</span>
+                    <span id="resumen-total">$0</span>
+                </div>
+
+                <button id="btn-pagar" class="boton-secundario">Ir al Pago</button>
+                <a href="catalogo.html" class="boton-terciario" style="display: block; text-align: center; text-decoration: none;">Seguir Comprando</a>
+            </aside>
+        </div>
+
+    <div id="modal-checkout" class="modal-oculto">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" id="cerrar-modal">&times;</span>
+            <h3>Datos de Envío y Pago</h3>
+            <form id="formulario-checkout">
+                <div class="grupo-input">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" required placeholder="Ej: Gordon Freeman">
+                </div>
+                <div class="grupo-input">
+                    <label for="direccion">Dirección de envío</label>
+                    <input type="text" id="direccion" required placeholder="Ej: Sector C, Black Mesa">
+                </div>
+                <div class="grupo-input">
+                    <label for="tarjeta">Número de tarjeta</label>
+                    <input type="text" id="tarjeta" required placeholder="1234 5678 9101 1121" maxlength="19">
+                </div>
+                <button type="submit" id="btn-confirmar-pago">Confirmar y Pagar</button>
+            </form>
+        </div>
+    </div>
+
+    </main>
+
+
+
+    <footer class="pie-pagina">
+        <p>&copy; 2026 GameHub Store - Proyecto Desarrollo FullStack II</p>
+    </footer>
+
+    <script src="js/carrito.js"></script>
+</body>
+</html>

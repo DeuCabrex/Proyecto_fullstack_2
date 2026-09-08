@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub Store - Solicitud de Garantía</title>
+</head>
+<body>
+    <header class="header-principal">
+        <div class="header-logo">
+            <img src="imagenes/gamehub.png" alt="Logo GameHub Store">
+        </div>
+        <h1 class="header-titulo">GameHub Store</h1>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="ordenes.html">Órdenes</a></li>
+                <li><a href="carrito.html">🛒 (0)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contenedor-garantia">
+            <h2 style="margin-bottom: 0.5rem;">Solicitud de Garantía</h2>
+            <p style="color: #aaa; margin-bottom: 1.5rem; font-size: 0.9rem;">
+                Ingresa los detalles de la falla para iniciar el proceso de evaluación técnica.
+            </p>
+
+            <form id="form-garantia" class="form-garantia">
+                <div class="grupo-campo">
+                    <label for="num-orden">Número de Orden:</label>
+                    <input type="text" id="num-orden" name="numOrden" readonly required>
+                </div>
+
+                <div class="grupo-campo">
+                    <label for="producto-fallado">Producto a reclamar:</label>
+                    <input type="text" id="producto-fallado" name="producto" readonly required>
+                </div>
+
+                <div class="grupo-campo">
+                    <label for="motivo">Motivo de la Garantía:</label>
+                    <select id="motivo" name="motivo" required>
+                        <option value="">-- Selecciona una opción --</option>
+                        <option value="falla_fabrica">El producto no enciende / Falla técnica</option>
+                        <option value="dano_transporte">Llegó dañado o golpeado</option>
+                        <option value="incompleto">Faltan piezas o accesorios</option>
+                        <option value="producto_incorrecto">Recibí un producto distinto</option>
+                    </select>
+                </div>
+
+                <div class="grupo-campo">
+                    <label for="descripcion">Descripción detallada del problema:</label>
+                    <textarea id="descripcion" name="descripcion" rows="4" placeholder="Explica detalladamente la falla observada..." required></textarea>
+                </div>
+
+                <div class="grupo-campo">
+                    <label for="evidencia">Adjuntar foto o evidencia (Opcional):</label>
+                    <input type="file" id="evidencia" name="evidencia" accept="image/*,.pdf">
+                </div>
+
+                <button type="submit">Enviar Solicitud de Garantía</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 GameHub Store - Proyecto Desarrollo FullStack II</p>
+    </footer>
+
+    <script src="js/garantia.js"></script>
+</body>
+</html>

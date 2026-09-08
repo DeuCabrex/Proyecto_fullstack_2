@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+    actualizarContadorHeader();
+
     const carrusel = document.querySelector('.carrusel-simple');
     const slides = document.querySelectorAll('.slide-banner');
 
@@ -35,3 +37,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 4500);
     }
 });
+
+function actualizarContadorHeader() {
+    const contadorCarrito = document.querySelector(".nav-carrito") || document.querySelector(".header-nav a[href='carrito.html']");
+        const carrito = JSON.parse(localStorage.getItem("carritoStore")) || [];
+        const totalItems = carrito.reduce((acc, item) => acc + (item.cantidad || 1), 0);    
+    if (contadorCarrito) {
+        contadorCarrito.textContent = `🛒 (${totalItems})`;
+    } else {
+        console.warn("No se encontró el elemento del carrito en el HTML.");
+    }
+}

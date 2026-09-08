@@ -1,20 +1,16 @@
-/* =========================================
-   VARIABLES GLOBALES
-   ========================================= */
 :root {
-    --color-fondo: #0f141b;          /* Fondo general de la página */
-    --color-superficie: #1e2631;     /* Fondo del header y tarjetas */
-    --color-borde: #334155;          /* Líneas divisorias */
+    --color-fondo: #0f141b;
+    --color-superficie: #1e2631;
+    --color-borde: #334155;
     --color-texto-principal: #ffffff;
     --color-texto-secundario: #cbd5e1;
     --color-texto-oscuro: #0f172a;
-    --color-primario: #5bb4e5;       /* Celeste */
-    --color-acento: #acd550;         /* Verde Acento (ACD550) */
-    --color-error: #ef4444;          /* Rojo para garantías/errores */
+    --color-primario: #5bb4e5;
+    --color-acento: #acd550;
+    --color-error: #ef4444;
     --radio-borde: 8px;
 }
 
-/* Estilos base */
 body {
     margin: 0;
     padding: 0;
@@ -23,9 +19,6 @@ body {
     color: var(--color-texto-principal);
 }
 
-/* =========================================
-   HEADER PRINCIPAL
-   ========================================= */
 .header-principal {
     background-color: var(--color-superficie);
     color: #ffffff;
@@ -76,7 +69,6 @@ body {
     transition: color 0.2s ease;
 }
 
-/* Hover y Activo en Verde Acento */
 .header-nav a:hover,
 .header-nav a.activo {
     color: var(--color-acento); 
@@ -86,9 +78,6 @@ body {
     font-weight: 500;
 }
 
-/* =========================================
-   CONTENEDOR Y TARJETAS
-   ========================================= */
 .contenedor-ordenes {
     max-width: 1000px;
     margin: 2.5rem auto;
@@ -150,7 +139,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* Badges */
 .badge-estado {
     padding: 4px 12px;
     border-radius: 20px;
@@ -170,7 +158,6 @@ body {
     border: 1px solid var(--color-primario);
 }
 
-/* Cuerpo de la tarjeta */
 .orden-body {
     padding: 1.5rem;
     display: flex;
@@ -215,9 +202,6 @@ body {
     gap: 0.6rem;
 }
 
-/* =========================================
-   BOTONES (Estilo Contorno Transparente)
-   ========================================= */
 .btn-secundario, 
 .btn-resena, 
 .btn-accion-garantia {
@@ -238,7 +222,6 @@ body {
     color: var(--color-texto-oscuro);
 }
 
-/* Botón principal dentro de los formularios de reseña */
 .btn-banner {
     background-color: transparent;
     color: var(--color-primario); 
@@ -272,9 +255,6 @@ body {
     background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* =========================================
-   FORMULARIOS DE RESEÑA (Dentro de tarjetas)
-   ========================================= */
 .subtitulo-modal {
     color: var(--color-primario);
     font-size: 0.95rem;
@@ -323,9 +303,6 @@ body {
     font-size: 0.8rem;
 }
 
-/* =========================================
-   SEGUIMIENTO Y FOOTER
-   ========================================= */
 .seguimiento-despacho h4 {
     color: #FFFFFF;
     font-size: 0.95rem;
@@ -406,9 +383,6 @@ footer {
     border-top: 1px solid var(--color-borde);
 }
 
-/* =========================================
-   RESPONSIVE
-   ========================================= */
 @media (max-width: 768px) {
     .header-principal {
         grid-template-columns: 1fr;

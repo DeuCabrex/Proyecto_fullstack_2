@@ -4,45 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameHub Store - Mis Órdenes</title>
-    
-    <!-- VÍNCULO A TU HOJA DE ESTILOS CORREGIDO -->
-    <link rel="stylesheet" href="mis_ordenes_css.css">
+        <link rel="stylesheet" href="CSS/mis_ordenes_css.css">
 </head>
 <body>
-
-    <!-- NAVEGACIÓN PRINCIPAL -->
     <header class="header-principal">
-        <!-- IZQUIERDA: Logo -->
         <div class="header-logo">
-            <img src="gamehub.png" alt="Logo GameHub Store">
+            <img src="imagenes/gamehub.png" alt="Logo GameHub Store">
         </div>
-        
-        <!-- CENTRO: Título -->
-        <h1 class="header-titulo">GameHub Store</h1>
-        
-        <!-- DERECHA: Navegación -->
+            <h1 class="header-titulo">GameHub Store</h1>
         <nav class="header-nav">
             <ul>
-                <!-- La clase "activo" ahora está en Órdenes -->
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="categoria.html">Catálogo</a></li>
-                <li><a href="mis_ordenes.html" class="activo">Órdenes</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="ordenes.html" class="activo">Órdenes</a></li>
                 <li><a href="carrito.html">🛒 (0)</a></li>
             </ul>
         </nav>
     </header>
-
-    <!-- CONTENIDO PRINCIPAL: MIS ÓRDENES -->
     <main class="contenedor-ordenes">
         <section class="encabezado-seccion">
             <h2>Mis Órdenes</h2>
             <p>Revisa el estado de tus compras e historial de pedidos.</p>
         </section>
-
-        <!-- LISTA DE ÓRDENES -->
         <section class="lista-ordenes">
-            
-            <!-- TARJETA DE ORDEN 1 -->
             <article class="tarjeta-orden">
                 <header class="orden-header">
                     <div class="orden-info-meta">
@@ -62,11 +46,7 @@
                         
                         <div class="item-acciones">
                             <button class="btn-secundario">Ver Detalles</button>
-                
-                            <!-- AQUÍ ESTÁ EL CAMBIO: Redirige a tu página de reseñas -->
-                            <button class="btn-resena" onclick="window.location.href='modelo_de_reseñas.html'">⭐ Dejar Reseña</button>
-                
-                            <!-- Si también tienes una página aparte para la garantía, puedes hacer lo mismo -->
+                            <button class="btn-resena" onclick="window.location.href='resenas.html'">⭐ Dejar Reseña</button>
                             <button class="btn-accion-garantia" onclick="window.location.href='modelo_de_garantia.html'">Solicitar Garantía</button>
                         </div>
                     </div>
@@ -89,11 +69,10 @@
 
         </section>
     </main>
-
-    <!-- PIE DE PÁGINA -->
     <footer>
         <p>&copy; 2026 GameHub Store - Todos los derechos reservados.</p>
     </footer>
+    <script src="js/ordenes.js"></script>
 
 </body>
 </html>

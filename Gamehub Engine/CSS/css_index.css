@@ -8,7 +8,7 @@
     --color-texto-secundario: #8F98A0;
     --color-texto-oscuro: #171A21;
     --color-borde: #2A3F5A;
-    --fuente-principal: system-ui, -apple-system, sans-serif;
+    --fuente-principal: 'Cinzel', Georgia, 'Times New Roman', serif;
     --radio-borde: 8px;
 }
 

@@ -7,4 +7,4 @@ Integrantes:
  Benjamin Cabrera
  Benjamin Cofre
 
-Aun no se estan utilizando carpetas ya que solo trabajamos el main, el css en una carpeta donde van todos los css y javascript
+se generaron carpetas para css, los archivos JavaScript, las imagenes que utilizamos y las paginas web tambien para que se vea de manera mas ordenada

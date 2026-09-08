@@ -9,7 +9,7 @@
 <body>
     <header class="header-principal">
         <div class="header-logo">
-            <img src="gamehub.png" alt="Logo GameHub Store">
+            <img src="imagenes/gamehub.png" alt="Logo GameHub Store">
         </div>
         
         <h1 class="header-titulo">GameHub Store</h1>
@@ -18,7 +18,7 @@
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Catálogo</a></li>
-                <li><a href="mis_ordenes.html" class="activo">Órdenes</a></li>
+                <li><a href="ordenes.html" class="activo">Órdenes</a></li>
                 <li><a href="carrito.html">🛒 (0)</a></li>
             </ul>
         </nav>
@@ -35,9 +35,7 @@
                     <span class="orden-id">⭐ Escribir Reseña</span>
                 </header>
 
-                <div class="orden-body">
-                    <p class="subtitulo-modal">Producto: Monitor Gamer 24" 144Hz</p>
-                    
+                <div class="orden-body">                    
                     <form id="form-resena" onsubmit="guardarResena(event)">
                         <input type="hidden" id="resena-orden-id">
                         <input type="hidden" id="resena-producto-id">
@@ -61,37 +59,12 @@
                         </div>
             
                         <div class="modal-acciones">
-                            <button type="button" class="btn-cancelar" onclick="window.location.href='mis_ordenes.html'">Volver</button>
+                            <button type="button" class="btn-cancelar" onclick="window.location.href='ordenes.html'">Volver</button>
                             <button type="submit" class="btn-banner">Publicar Reseña</button>
                         </div>
                     </form>
                 </div>
             </article>
-            <article class="tarjeta-orden">
-                <header class="orden-header">
-                    <span class="orden-id">🔧 Solicitud de Garantía</span>
-                </header>
-
-                <div class="orden-body">
-                    <p class="subtitulo-modal">Producto: Monitor Gamer 24" 144Hz</p>
-                    
-                    <form id="form-garantia" onsubmit="guardarGarantia(event)">
-                        <input type="hidden" id="garantia-orden-id">
-            
-                        <div class="campo-form">
-                            <label for="motivo-garantia">Motivo de la falla o solicitud:</label>
-                            <textarea id="motivo-garantia" rows="4" placeholder="Describe detalladamente el fallo del producto..." required></textarea>
-                            <span id="error-garantia" class="mensaje-error"></span>
-                        </div>
-            
-                        <div class="modal-acciones">
-                            <button type="button" class="btn-cancelar" onclick="window.location.href='mis_ordenes.html'">Volver</button>
-                            <button type="submit" class="btn-banner">Enviar Solicitud</button>
-                        </div>
-                    </form>
-                </div>
-            </article>
-
         </section>
     </main>
     <footer>

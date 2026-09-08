@@ -90,7 +90,6 @@ function aplicarFiltros() {
 btnAplicar.addEventListener("click", aplicarFiltros);
 selectOrdenar.addEventListener("change", aplicarFiltros);
 
-// Limpiar Filtros
 btnLimpiar.addEventListener("click", () => {
     selectCategoria.value = "todas";
     selectMarca.value = "todas";

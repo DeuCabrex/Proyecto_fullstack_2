@@ -195,7 +195,7 @@ const productosDB = [
         precioOtros: 682490,
         precioNormal: 799990,
         descuento: 19,
-        imagen: "https://images.unsplash.com/photo-1626407763391-766723223ceb?w=400&q=80"
+        imagen: "imagenes/Procesador AMD Ryzen 9 7950X3D.jpg"
     },
     {
         id: 19,
@@ -206,7 +206,7 @@ const productosDB = [
         precioOtros: 146990,
         precioNormal: 189990,
         descuento: 26,
-        imagen: "amd5600g.png"
+        imagen: "imagenes/amd5600g.png"
     },
     {
         id: 20,
@@ -217,7 +217,7 @@ const productosDB = [
         precioOtros: 199490,
         precioNormal: 249990,
         descuento: 24,
-        imagen: "https://images.unsplash.com/photo-1631583020626-d668c2ec68bd?w=400&q=80"
+        imagen: "imagenes/Procesador AMD Ryzen 7 5700X.jpg"
     },
     
     {
@@ -229,7 +229,7 @@ const productosDB = [
         precioOtros: 1679999,
         precioNormal: 2999990,
         descuento: 50,
-        imagen: "grafica_miku.png" 
+        imagen: "imagenes/grafica_miku.png" 
     }
 
 ];
